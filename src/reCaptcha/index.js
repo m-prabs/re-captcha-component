@@ -71,7 +71,7 @@ const renderCaptcha = coeff => {
 	});
 };
 
-createCustomElement("sn-g-captcha", {
+createCustomElement("sn-re-captcha", {
 	renderer: { type: snabbdom },
 	view,
 	properties: {
