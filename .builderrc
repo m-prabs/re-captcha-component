@@ -1,0 +1,4 @@
+---
+archetypes:
+  - "@tectonic/archetype"
+  - "@tectonic/component-archetype"

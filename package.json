@@ -1,0 +1,37 @@
+{
+  "name": "sn-captcha-provider",
+  "version": "0.0.1",
+  "private": false,
+  "description": "",
+  "keywords": [
+    "ServiceNow",
+    "Seismic Component",
+    "reCaptcha Provider"
+  ],
+  "readme": "./README.md",
+  "scripts": {
+    "start": "builder run develop:trace -- --port=8084 --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://code.devsnc.com/prabhat.mishra/captcha-provider"
+  },
+  "publishConfig": {
+    "registry": "https://artifact.devsnc.com/content/repositories/snc-npm-releases/"
+  },
+  "engines": {
+    "node": ">=8.6.0",
+    "npm": ">=5.3.0"
+  },
+  "dependencies": {
+    "@servicenow/now-button": "18.0.0",
+    "@servicenow/ui-core": "18.0.0-rc.33",
+    "@servicenow/ui-renderer-snabbdom": "18.0.0-rc.33",
+    "@tectonic/archetype": "5.0.0-rc.41",
+    "@tectonic/component-archetype": "5.0.0-rc.41"
+  },
+  "devDependencies": {
+    "@tectonic/archetype-dev": "5.0.0-rc.44",
+    "@tectonic/component-archetype-dev": "5.0.0-rc.44"
+  }
+}
