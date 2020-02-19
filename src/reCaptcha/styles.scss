@@ -1,0 +1,50 @@
+.now-g-captcha {
+  display: flex;
+  justify-content: center;
+
+  .ngc-container {
+    padding: 20px 30px;
+    border: 1px solid #cecece;
+    border-radius: 15px;
+    box-shadow: 4px 2px 15px 2px #ccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .ngc-item {
+    flex: 0 1 30%;
+    padding: 0 10px;
+  }
+
+  .ngc-icon-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cecece;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .ngc-icon.--not-verified {
+      width: 10px;
+      height: 10px;
+      background: #cecece;
+      border: 1px solid #cecece;
+      border-radius: 50%;
+    }
+    .ngc-icon.--verified {
+      font-size: 40px;
+      display: block;
+      margin-top: -20px;
+      margin-left: 5px;
+      color: #78b13f;
+    }
+    .ngc-icon.--expired,
+    .ngc-icon.--errored {
+      font-size: 35px;
+      margin-top: -3px;
+      display: block;
+      color: red;
+    }
+  }
+}

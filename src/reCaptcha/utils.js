@@ -6,7 +6,6 @@ const generateCaptcha = captchaId => {
 	el.setAttribute("class", "captcha-box");
 	el.innerHTML = `<div id=` + captchaId + ` class="g-recaptcha"></div>`;
 	document.body.appendChild(getTemplate(el));
-	//if (!window.openCaptchaModal)
 	initModal();
 };
 

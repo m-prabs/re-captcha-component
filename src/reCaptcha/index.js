@@ -3,25 +3,41 @@ import snabbdom from "@servicenow/ui-renderer-snabbdom";
 import "@servicenow/now-button";
 const { COMPONENT_BOOTSTRAPPED } = actionTypes;
 import utils from "./utils";
+import styles from "./styles.scss";
 
 const view = state => {
 	return (
-		<div>
-			<div className="re-captcha-status">
-				Status: <span>{state.status || "Not Verified"}</span>
-			</div>
-			<div className="re-captcha-trigger">
-				<now-button-bare
-					icon-start="checkbox-indeterminate-outline"
-					label={
-						!state.status
-							? "Click to verify captcha"
-							: "Re-trigger Verification"
-					}
-					size="md"
-					variant="primary"
-					append-to-payload={{ retrigger: !!state.status }}
-				></now-button-bare>
+		<div className="now-g-captcha">
+			<div className="ngc-container">
+				<div className="ngc-status ngc-item">
+					<div className="ngc-icon-box">
+						{state.status ? null : (
+							<div className="ngc-icon --not-verified"></div>
+						)}
+						{state.status == "success" ? (
+							<div className="ngc-icon --verified">
+								<span>&#10003;</span>
+							</div>
+						) : null}
+						{state.status && state.status != "success" ? (
+							<div className="ngc-icon --expired --errored">
+								<span>&#10540;</span>
+							</div>
+						) : null}
+					</div>
+				</div>
+				<div className="ngc-trigger ngc-item">
+					<now-button-bare
+						label={
+							!state.status
+								? "Click to verify captcha"
+								: "Re-trigger Verification"
+						}
+						size="md"
+						variant="primary"
+						append-to-payload={{ retrigger: !!state.status }}
+					></now-button-bare>
+				</div>
 			</div>
 		</div>
 	);
@@ -42,7 +58,6 @@ const showModal = coeff => {
 		action: { payload }
 	} = coeff;
 	if (payload.retrigger) {
-		//coeff.updateState({ status: null });
 		window.grecaptcha.reset();
 		utils.reRenderCaptcha(coeff);
 	}
@@ -74,6 +89,7 @@ const renderCaptcha = coeff => {
 createCustomElement("sn-re-captcha", {
 	renderer: { type: snabbdom },
 	view,
+	styles,
 	properties: {
 		captchaSiteKey: {
 			default: "6LcQ9dkUAAAAAAoEsUOafr0NKTtS8_6_rjr1k0hB"
