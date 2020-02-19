@@ -25,26 +25,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    .ngc-icon.--not-verified {
-      width: 10px;
-      height: 10px;
-      background: #cecece;
-      border: 1px solid #cecece;
-      border-radius: 50%;
+    &.--not-verified {
+      .ngc-icon {
+        width: 10px;
+        height: 10px;
+        background: #cecece;
+        border: 1px solid #cecece;
+        border-radius: 50%;
+      }
     }
-    .ngc-icon.--verified {
-      font-size: 40px;
-      display: block;
-      margin-top: -20px;
-      margin-left: 5px;
-      color: #78b13f;
+    &.--verified {
+      border-color: #78b13f;
+      .ngc-icon {
+        font-size: 37px;
+        display: block;
+        margin-top: -13px;
+        margin-left: 9px;
+        color: #78b13f;
+      }
     }
-    .ngc-icon.--expired,
-    .ngc-icon.--errored {
-      font-size: 35px;
-      margin-top: -3px;
-      display: block;
-      color: red;
+    &.--expired,
+    &.--errored {
+      border-color: #ee3838c9;
+      .ngc-icon {
+        font-size: 35px;
+        margin-top: -3px;
+        display: block;
+        color: #ee3838c9;
+      }
     }
   }
 }

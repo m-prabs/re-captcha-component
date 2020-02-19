@@ -1,47 +1,9 @@
 import { createCustomElement, actionTypes } from "@servicenow/ui-core";
 import snabbdom from "@servicenow/ui-renderer-snabbdom";
-import "@servicenow/now-button";
 const { COMPONENT_BOOTSTRAPPED } = actionTypes;
 import utils from "./utils";
 import styles from "./styles.scss";
-
-const view = state => {
-	return (
-		<div className="now-g-captcha">
-			<div className="ngc-container">
-				<div className="ngc-status ngc-item">
-					<div className="ngc-icon-box">
-						{state.status ? null : (
-							<div className="ngc-icon --not-verified"></div>
-						)}
-						{state.status == "success" ? (
-							<div className="ngc-icon --verified">
-								<span>&#10003;</span>
-							</div>
-						) : null}
-						{state.status && state.status != "success" ? (
-							<div className="ngc-icon --expired --errored">
-								<span>&#10540;</span>
-							</div>
-						) : null}
-					</div>
-				</div>
-				<div className="ngc-trigger ngc-item">
-					<now-button-bare
-						label={
-							!state.status
-								? "Click to verify captcha"
-								: "Re-trigger Verification"
-						}
-						size="md"
-						variant="primary"
-						append-to-payload={{ retrigger: !!state.status }}
-					></now-button-bare>
-				</div>
-			</div>
-		</div>
-	);
-};
+import view from "./view";
 
 let closeModal;
 
