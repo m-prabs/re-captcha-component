@@ -1,4 +1,4 @@
-# Captcha Provider[WIP]
+# Captcha Provider
 
 Provides a way for captcha validation inside Web Components
 
